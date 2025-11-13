@@ -3,25 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^6.12.6",
-    "ajv-keywords": "^3.5.2",
-    "lucide-react": "^0.104.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0"
+    "react-router-dom": "^6.8.0",
+    "lucide-react": "^0.104.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.5",
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && echo 'Ready for deployment to Netlify'"
   },
   "eslintConfig": {
     "extends": [
