@@ -1,0 +1,410 @@
+.home {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9));
+  padding: 8rem 0 5rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  animation: pulse 4s infinite;
+}
+
+.light-theme .hero {
+  background: linear-gradient(rgba(240, 240, 240, 0.9), rgba(240, 240, 240, 0.95));
+  color: var(--light-text-primary);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-title {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 870px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--neon-color), var(--neon-color-secondary));
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  color: var(--dark-text-secondary);
+}
+
+.light-theme .hero-subtitle {
+  color: var(--light-text-secondary);
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Stats Section */
+.stats-section {
+  background-color: var(--dark-bg-secondary);
+  padding: 3rem 0;
+  position: relative;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-color), transparent);
+  opacity: 0.5;
+}
+
+.light-theme .stats-section {
+  background-color: var(--light-bg-secondary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(77, 77, 77, 0.05);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--neon-color), var(--neon-color-secondary)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  background: rgba(138, 43, 226, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card:hover::before {
+  opacity: 0.2;
+}
+
+.stat-icon {
+  color: var(--neon-color);
+  filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5));
+}
+
+.stat-content .stat-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.25rem;
+  color: var(--neon-color);
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.3);
+}
+
+.stat-content .stat-label {
+  color: var(--dark-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.light-theme .stat-content .stat-label {
+  color: var(--light-text-secondary);
+}
+
+/* Vehicles Grid */
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.vehicle-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.vehicle-card:hover .vehicle-image img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.3));
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, var(--neon-color), var(--neon-color-secondary));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+  }
+  to {
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+  }
+}
+
+.vehicle-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.vehicle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.vehicle-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.vehicle-year {
+  color: var(--dark-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.light-theme .vehicle-year {
+  color: var(--light-text-secondary);
+}
+
+.vehicle-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.spec-tag {
+  background-color: rgba(77, 77, 77, 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.spec-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-color), var(--neon-color-secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.spec-tag:hover::before {
+  opacity: 0.1;
+}
+
+.vehicle-price {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+  color: var(--neon-color);
+  text-shadow: 0 0 8px rgba(138, 43, 226, 0.3);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-sm);
+  width: fit-content;
+  margin-top: auto;
+}
+
+/* Features Section */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, var(--neon-color), var(--neon-color-secondary)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.feature-card:hover::before {
+  opacity: 0.1;
+}
+
+.feature-icon {
+  color: var(--neon-color);
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5));
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 1rem;
+  color: var(--neon-color);
+}
+
+.feature-card p {
+  color: var(--dark-text-secondary);
+  line-height: 1.6;
+}
+
+.light-theme .feature-card p {
+  color: var(--light-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 0 3rem;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
